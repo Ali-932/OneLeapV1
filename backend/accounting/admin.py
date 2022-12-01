@@ -2,7 +2,7 @@ from django.contrib import admin
 from treenode.admin import TreeNodeModelAdmin
 from treenode.forms import TreeNodeForm
 
-from .models import Account
+from .models import Account,Transaction,JournalEntry
 
 
 class AccountAdmin(TreeNodeModelAdmin):
@@ -18,5 +18,17 @@ class AccountAdmin(TreeNodeModelAdmin):
 
     list_display = ('id', 'code', 'name')
 
+    # def balance(self, obj):
+    #     return obj.get_balance()
+    #
+
 
 admin.site.register(Account, AccountAdmin)
+
+@admin.register(Transaction)
+class TransactionAdmin(admin.ModelAdmin):
+    list_display = ('type', 'description')
+
+@admin.register(JournalEntry)
+class JournalEntryAdmin(admin.ModelAdmin):
+    list_display = ('account', 'transaction', 'amount')

@@ -26,6 +26,7 @@ SECRET_KEY = 'django-insecure-0j3a3j#9ebt6v!7it=_0*hrc5s2hnks2nfnt^9u6sfs^iyn@6(
 DEBUG = True
 
 ALLOWED_HOSTS = []
+CURRENCIES = ('USD', 'IQD')
 
 
 # Application definition
@@ -58,7 +59,7 @@ ROOT_URLCONF = 'backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR/'backend'/'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
