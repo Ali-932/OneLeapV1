@@ -57,7 +57,7 @@ class JournalEntry(models.Model):
     account = models.ForeignKey(Account, on_delete=models.CASCADE, null=True, related_name="account_JE")
     transaction = models.ForeignKey(Transaction, on_delete=models.CASCADE, null=True, related_query_name="transaction_JE")
     amount = MoneyField(max_digits=19, decimal_places=2, null=True)
-    date = models.DateField('Date', auto_now_add=True, null=True)
+    date = models.DateField('Date', auto_now_add=False, null=True)
     type = models.CharField('Type', max_length=255, choices=JournalEntryTypeChoices.choices, null=True, blank=True)
     notes = models.CharField('Notes', max_length=255, null=True, blank=True)
     reference_number = models.CharField('Reference', max_length=255, null=True, blank=True)
